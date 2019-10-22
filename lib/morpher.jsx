@@ -5,7 +5,7 @@
 
 function Morpher(config, morphOnCreate){
 
-    config = config || {}
+    config = config || {};
     morphOnCreate = morphOnCreate || false;
 
     this.preMorphLayer = config.premorphLayer || undefined;
