@@ -1,0 +1,1217 @@
+{
+    "items": {
+      "item-0": {
+        "id": 0,
+        "type": "Dialog",
+        "parentId": false,
+        "style": {
+          "varName": "win",
+          "text": "Morpher",
+          "preferredSize": [
+            0,
+            0
+          ],
+          "margins": 16,
+          "orientation": "column",
+          "spacing": 10,
+          "alignChildren": [
+            "center",
+            "top"
+          ],
+          "windowType": "Dialog",
+          "creationProps": {
+            "su1PanelCoordinates": false,
+            "maximizeButton": false,
+            "minimizeButton": false,
+            "independent": false,
+            "closeButton": true,
+            "borderless": false,
+            "resizeable": false
+          },
+          "enabled": true
+        }
+      },
+      "item-1": {
+        "id": 1,
+        "type": "TabbedPanel",
+        "parentId": 0,
+        "style": {
+          "varName": "morpherTabbedPanel",
+          "preferredSize": [
+            220,
+            327
+          ],
+          "margins": 10,
+          "alignment": "fill",
+          "selection": 2,
+          "enabled": true
+        }
+      },
+      "item-2": {
+        "id": 2,
+        "type": "Tab",
+        "parentId": 1,
+        "style": {
+          "varName": "premorphTab",
+          "text": "pre",
+          "orientation": "column",
+          "spacing": 10,
+          "alignChildren": [
+            "left",
+            "top"
+          ],
+          "enabled": true
+        }
+      },
+      "item-4": {
+        "id": 4,
+        "type": "Button",
+        "parentId": 2,
+        "style": {
+          "varName": "premorphTabGetSelectedButton",
+          "text": "Get selected",
+          "justify": "center",
+          "preferredSize": [
+            131,
+            0
+          ],
+          "alignment": "center",
+          "helpTip": null,
+          "enabled": true
+        }
+      },
+      "item-6": {
+        "id": 6,
+        "type": "StaticText",
+        "parentId": 2,
+        "style": {
+          "varName": "premorphTabSelectedLayerName",
+          "softWrap": false,
+          "text": "selected layers' names.",
+          "justify": "left",
+          "preferredSize": [
+            0,
+            0
+          ],
+          "alignment": "fill",
+          "helpTip": null,
+          "creationProps": {
+            "truncate": "none",
+            "multiline": false,
+            "scrolling": false
+          },
+          "enabled": true
+        }
+      },
+      "item-7": {
+        "id": 7,
+        "type": "Divider",
+        "parentId": 2,
+        "style": {
+          "varName": "premorphTabDivider",
+          "enabled": true
+        }
+      },
+      "item-9": {
+        "id": 9,
+        "type": "DropDownList",
+        "parentId": 15,
+        "style": {
+          "varName": "premorphTabSortingDirectionPanelSortingList",
+          "text": "Sorting",
+          "listItems": "topleft,leftright,rightleft,topdown,bottomup,Closest",
+          "preferredSize": [
+            0,
+            0
+          ],
+          "alignment": null,
+          "selection": 0,
+          "helpTip": null,
+          "enabled": true
+        }
+      },
+      "item-10": {
+        "id": 10,
+        "type": "DropDownList",
+        "parentId": 15,
+        "style": {
+          "varName": "premorphTabSortingDirectionPanelClosestList",
+          "text": "Closest",
+          "listItems": "layer 1,layer2,layer3",
+          "preferredSize": [
+            0,
+            0
+          ],
+          "alignment": null,
+          "selection": 1,
+          "helpTip": null,
+          "enabled": true
+        }
+      },
+      "item-12": {
+        "id": 12,
+        "type": "Panel",
+        "parentId": 2,
+        "style": {
+          "varName": "premorphTabFirstVertexPanel",
+          "text": "First Vertex",
+          "preferredSize": [
+            0,
+            0
+          ],
+          "margins": [
+            15,
+            10,
+            10,
+            10
+          ],
+          "orientation": "column",
+          "spacing": 11,
+          "alignChildren": [
+            "left",
+            "top"
+          ],
+          "alignment": "fill",
+          "creationProps": {
+            "borderStyle": "etched",
+            "su1PanelCoordinates": false
+          },
+          "enabled": true
+        }
+      },
+      "item-13": {
+        "id": 13,
+        "type": "DropDownList",
+        "parentId": 12,
+        "style": {
+          "varName": "premorphTabFirstVertexPanelFirstVertexList",
+          "text": "fVertex",
+          "listItems": "topleft,left,right,bottom,up,random,Closest To",
+          "preferredSize": [
+            0,
+            0
+          ],
+          "alignment": null,
+          "selection": 0,
+          "helpTip": null,
+          "enabled": true
+        }
+      },
+      "item-14": {
+        "id": 14,
+        "type": "DropDownList",
+        "parentId": 12,
+        "style": {
+          "varName": "premorphTabFirstVertexPanelClosestList",
+          "text": "Closest",
+          "listItems": "layer 1,layer2,layer3",
+          "preferredSize": [
+            0,
+            0
+          ],
+          "alignment": null,
+          "selection": 0,
+          "helpTip": null,
+          "enabled": true
+        }
+      },
+      "item-15": {
+        "id": 15,
+        "type": "Panel",
+        "parentId": 2,
+        "style": {
+          "varName": "premorphTabSortingDirectionPanel",
+          "text": "Sorting Direction",
+          "preferredSize": [
+            197,
+            0
+          ],
+          "margins": [
+            15,
+            10,
+            10,
+            10
+          ],
+          "orientation": "column",
+          "spacing": 10,
+          "alignChildren": [
+            "left",
+            "top"
+          ],
+          "alignment": "fill",
+          "creationProps": {
+            "borderStyle": "etched",
+            "su1PanelCoordinates": false
+          },
+          "enabled": true
+        }
+      },
+      "item-28": {
+        "id": 28,
+        "type": "Panel",
+        "parentId": 61,
+        "style": {
+          "varName": "settingsTabDuplicatesPanel",
+          "text": "duplicates",
+          "preferredSize": [
+            0,
+            0
+          ],
+          "margins": 10,
+          "orientation": "column",
+          "spacing": 10,
+          "alignChildren": [
+            "left",
+            "top"
+          ],
+          "alignment": null,
+          "creationProps": {
+            "borderStyle": "etched",
+            "su1PanelCoordinates": false
+          },
+          "enabled": true
+        }
+      },
+      "item-29": {
+        "id": 29,
+        "type": "Panel",
+        "parentId": 61,
+        "style": {
+          "varName": "settingsTabLayersPanel",
+          "text": "Layers",
+          "preferredSize": [
+            0,
+            0
+          ],
+          "margins": 10,
+          "orientation": "row",
+          "spacing": 10,
+          "alignChildren": [
+            "left",
+            "top"
+          ],
+          "alignment": "fill",
+          "creationProps": {
+            "borderStyle": "etched",
+            "su1PanelCoordinates": false
+          },
+          "enabled": true
+        }
+      },
+      "item-30": {
+        "id": 30,
+        "type": "Panel",
+        "parentId": 61,
+        "style": {
+          "varName": "settingsTabMorphingTimePanel",
+          "text": "morphing time",
+          "preferredSize": [
+            0,
+            0
+          ],
+          "margins": 10,
+          "orientation": "column",
+          "spacing": 10,
+          "alignChildren": [
+            "left",
+            "center"
+          ],
+          "alignment": null,
+          "creationProps": {
+            "borderStyle": "etched",
+            "su1PanelCoordinates": false
+          },
+          "enabled": true
+        },
+        "collapsed": true
+      },
+      "item-31": {
+        "id": 31,
+        "type": "Button",
+        "parentId": 33,
+        "style": {
+          "varName": null,
+          "text": "Morph",
+          "justify": "center",
+          "preferredSize": [
+            87,
+            0
+          ],
+          "alignment": null,
+          "helpTip": null,
+          "enabled": true
+        }
+      },
+      "item-33": {
+        "id": 33,
+        "type": "Group",
+        "parentId": 0,
+        "style": {
+          "varName": null,
+          "preferredSize": [
+            0,
+            0
+          ],
+          "margins": 0,
+          "orientation": "row",
+          "spacing": 10,
+          "alignChildren": [
+            "left",
+            "center"
+          ],
+          "alignment": null,
+          "enabled": true
+        }
+      },
+      "item-40": {
+        "id": 40,
+        "type": "Group",
+        "parentId": 61,
+        "style": {
+          "varName": "settingsTabOptionsGroup",
+          "preferredSize": [
+            0,
+            0
+          ],
+          "margins": 0,
+          "orientation": "row",
+          "spacing": 10,
+          "alignChildren": [
+            "left",
+            "center"
+          ],
+          "alignment": "center",
+          "enabled": true
+        },
+        "collapsed": true
+      },
+      "item-41": {
+        "id": 41,
+        "type": "RadioButton",
+        "parentId": 40,
+        "style": {
+          "varName": "settingsTabDefaultRadioButton",
+          "text": "Default",
+          "preferredSize": [
+            0,
+            0
+          ],
+          "alignment": null,
+          "helpTip": null,
+          "checked": true,
+          "enabled": true
+        }
+      },
+      "item-42": {
+        "id": 42,
+        "type": "RadioButton",
+        "parentId": 40,
+        "style": {
+          "varName": "settingsTabCustomRadioButton",
+          "text": "Custom",
+          "preferredSize": [
+            0,
+            0
+          ],
+          "alignment": null,
+          "helpTip": null,
+          "checked": false,
+          "enabled": true
+        }
+      },
+      "item-43": {
+        "id": 43,
+        "type": "Group",
+        "parentId": 2,
+        "style": {
+          "varName": "premorphTabOptionsGroup",
+          "preferredSize": [
+            0,
+            0
+          ],
+          "margins": 0,
+          "orientation": "row",
+          "spacing": 10,
+          "alignChildren": [
+            "left",
+            "center"
+          ],
+          "alignment": "center",
+          "enabled": true
+        }
+      },
+      "item-44": {
+        "id": 44,
+        "type": "RadioButton",
+        "parentId": 43,
+        "style": {
+          "varName": "premorphTabDefaultRadioButton",
+          "text": "Default",
+          "preferredSize": [
+            0,
+            0
+          ],
+          "alignment": null,
+          "helpTip": null,
+          "checked": true,
+          "enabled": true
+        }
+      },
+      "item-45": {
+        "id": 45,
+        "type": "RadioButton",
+        "parentId": 43,
+        "style": {
+          "varName": "premorphTabCustomRadioButton",
+          "text": "Custom",
+          "preferredSize": [
+            0,
+            0
+          ],
+          "alignment": null,
+          "helpTip": null,
+          "checked": false,
+          "enabled": true
+        }
+      },
+      "item-46": {
+        "id": 46,
+        "type": "DropDownList",
+        "parentId": 28,
+        "style": {
+          "varName": "settingsTabDuplicatesPanelDistributeList",
+          "text": "distribute",
+          "listItems": "c.o.f,random,closest shapes,manually",
+          "preferredSize": [
+            0,
+            0
+          ],
+          "alignment": null,
+          "selection": 1,
+          "helpTip": null,
+          "enabled": true
+        }
+      },
+      "item-47": {
+        "id": 47,
+        "type": "Group",
+        "parentId": 28,
+        "style": {
+          "varName": "settingsTabDuplicatesPanelManualGroup",
+          "preferredSize": [
+            0,
+            0
+          ],
+          "margins": 0,
+          "orientation": "row",
+          "spacing": 10,
+          "alignChildren": [
+            "left",
+            "center"
+          ],
+          "alignment": null,
+          "enabled": true
+        }
+      },
+      "item-48": {
+        "id": 48,
+        "type": "Button",
+        "parentId": 47,
+        "style": {
+          "varName": null,
+          "text": "pre",
+          "justify": "center",
+          "preferredSize": [
+            49,
+            0
+          ],
+          "alignment": null,
+          "helpTip": null,
+          "enabled": true
+        }
+      },
+      "item-50": {
+        "id": 50,
+        "type": "Group",
+        "parentId": 29,
+        "style": {
+          "varName": null,
+          "preferredSize": [
+            0,
+            0
+          ],
+          "margins": 0,
+          "orientation": "column",
+          "spacing": 10,
+          "alignChildren": [
+            "left",
+            "center"
+          ],
+          "alignment": null,
+          "enabled": true
+        }
+      },
+      "item-51": {
+        "id": 51,
+        "type": "StaticText",
+        "parentId": 50,
+        "style": {
+          "varName": "settingsTabLayersPanelExpandText",
+          "softWrap": false,
+          "text": "Expand",
+          "justify": "left",
+          "preferredSize": [
+            0,
+            0
+          ],
+          "alignment": null,
+          "helpTip": null,
+          "creationProps": {
+            "truncate": "none",
+            "multiline": false,
+            "scrolling": false
+          },
+          "enabled": true
+        }
+      },
+      "item-52": {
+        "id": 52,
+        "type": "RadioButton",
+        "parentId": 50,
+        "style": {
+          "varName": "settingsTabLayersPanelDeleteRadioButton",
+          "text": "delete",
+          "preferredSize": [
+            0,
+            0
+          ],
+          "alignment": null,
+          "helpTip": null,
+          "checked": true,
+          "enabled": true
+        }
+      },
+      "item-53": {
+        "id": 53,
+        "type": "RadioButton",
+        "parentId": 50,
+        "style": {
+          "varName": "settingsTabLayersPanelDisableRadioButton",
+          "text": "disable",
+          "preferredSize": [
+            0,
+            0
+          ],
+          "alignment": null,
+          "helpTip": null,
+          "checked": false,
+          "enabled": true
+        }
+      },
+      "item-54": {
+        "id": 54,
+        "type": "Group",
+        "parentId": 29,
+        "style": {
+          "varName": null,
+          "preferredSize": [
+            0,
+            0
+          ],
+          "margins": 0,
+          "orientation": "column",
+          "spacing": 10,
+          "alignChildren": [
+            "left",
+            "center"
+          ],
+          "alignment": null,
+          "enabled": true
+        }
+      },
+      "item-55": {
+        "id": 55,
+        "type": "StaticText",
+        "parentId": 54,
+        "style": {
+          "varName": null,
+          "softWrap": false,
+          "text": "Shrink",
+          "justify": "left",
+          "preferredSize": [
+            0,
+            0
+          ],
+          "alignment": null,
+          "helpTip": null,
+          "creationProps": {
+            "truncate": "none",
+            "multiline": false,
+            "scrolling": false
+          },
+          "enabled": true
+        }
+      },
+      "item-56": {
+        "id": 56,
+        "type": "RadioButton",
+        "parentId": 54,
+        "style": {
+          "varName": "settingsTabLayersPanelRestoreRadioButton",
+          "text": "restore",
+          "preferredSize": [
+            0,
+            0
+          ],
+          "alignment": null,
+          "helpTip": null,
+          "checked": true,
+          "enabled": true
+        }
+      },
+      "item-57": {
+        "id": 57,
+        "type": "RadioButton",
+        "parentId": 54,
+        "style": {
+          "varName": "settingsTabLayersPanelKeepRadioButton",
+          "text": "keep",
+          "preferredSize": [
+            0,
+            0
+          ],
+          "alignment": null,
+          "helpTip": null,
+          "checked": false,
+          "enabled": true
+        }
+      },
+      "item-58": {
+        "id": 58,
+        "type": "Group",
+        "parentId": 30,
+        "style": {
+          "varName": null,
+          "preferredSize": [
+            0,
+            0
+          ],
+          "margins": 0,
+          "orientation": "row",
+          "spacing": 10,
+          "alignChildren": [
+            "center",
+            "center"
+          ],
+          "alignment": null,
+          "enabled": true
+        }
+      },
+      "item-59": {
+        "id": 59,
+        "type": "StaticText",
+        "parentId": 58,
+        "style": {
+          "varName": "settingsTabMorphingTimePanelText",
+          "softWrap": false,
+          "text": "Time:",
+          "justify": "left",
+          "preferredSize": [
+            0,
+            0
+          ],
+          "alignment": null,
+          "helpTip": null,
+          "creationProps": {
+            "truncate": "none",
+            "multiline": false,
+            "scrolling": false
+          },
+          "enabled": true
+        }
+      },
+      "item-60": {
+        "id": 60,
+        "type": "EditText",
+        "parentId": 58,
+        "style": {
+          "varName": "settingsTabMorphingTimePanelEditText",
+          "softWrap": false,
+          "text": "0.53",
+          "preferredSize": [
+            112,
+            23
+          ],
+          "alignment": null,
+          "helpTip": null,
+          "creationProps": {
+            "noecho": false,
+            "readonly": false,
+            "multiline": false,
+            "scrollable": false,
+            "borderless": false,
+            "enterKeySignalsOnChange": false
+          },
+          "enabled": true,
+          "justify": "left"
+        }
+      },
+      "item-61": {
+        "id": 61,
+        "type": "Tab",
+        "parentId": 1,
+        "style": {
+          "varName": "settingsTab",
+          "text": "settings",
+          "orientation": "column",
+          "spacing": 10,
+          "alignChildren": [
+            "left",
+            "top"
+          ],
+          "enabled": true
+        }
+      },
+      "item-62": {
+        "id": 62,
+        "type": "RadioButton",
+        "parentId": 50,
+        "style": {
+          "varName": "settingsTabLayersPanelExpandNoRadioButton",
+          "text": "no",
+          "preferredSize": [
+            0,
+            0
+          ],
+          "alignment": null,
+          "helpTip": null,
+          "checked": false,
+          "enabled": true
+        }
+      },
+      "item-63": {
+        "id": 63,
+        "type": "RadioButton",
+        "parentId": 54,
+        "style": {
+          "varName": "settingsTabLayersPanelShrinkNoRadioButton",
+          "text": "no",
+          "preferredSize": [
+            0,
+            0
+          ],
+          "alignment": null,
+          "helpTip": null,
+          "enabled": true
+        }
+      },
+      "item-64": {
+        "id": 64,
+        "type": "StaticText",
+        "parentId": 47,
+        "style": {
+          "varName": "manuallyChoosingText",
+          "softWrap": false,
+          "text": "Manual",
+          "justify": "left",
+          "preferredSize": [
+            0,
+            0
+          ],
+          "alignment": null,
+          "helpTip": null,
+          "creationProps": {
+            "truncate": "none",
+            "multiline": false,
+            "scrolling": false
+          },
+          "enabled": true
+        }
+      },
+      "item-65": {
+        "id": 65,
+        "type": "Group",
+        "parentId": 28,
+        "style": {
+          "varName": "settingsTabDuplicatesPanelManuallyIndicesGroup",
+          "preferredSize": [
+            0,
+            0
+          ],
+          "margins": 0,
+          "orientation": "row",
+          "spacing": 10,
+          "alignChildren": [
+            "left",
+            "center"
+          ],
+          "alignment": null,
+          "enabled": true
+        }
+      },
+      "item-66": {
+        "id": 66,
+        "type": "StaticText",
+        "parentId": 65,
+        "style": {
+          "varName": "settingsTabDuplicatesPanelManuallyIndicesText",
+          "softWrap": false,
+          "text": "Indices",
+          "justify": "left",
+          "preferredSize": [
+            0,
+            0
+          ],
+          "alignment": null,
+          "helpTip": null,
+          "creationProps": {
+            "truncate": "none",
+            "multiline": false,
+            "scrolling": false
+          },
+          "enabled": true
+        }
+      },
+      "item-67": {
+        "id": 67,
+        "type": "Tab",
+        "parentId": 1,
+        "style": {
+          "varName": "postmorphTab",
+          "text": "post",
+          "orientation": "column",
+          "spacing": 10,
+          "alignChildren": [
+            "left",
+            "top"
+          ],
+          "enabled": true
+        },
+        "collapsed": true
+      },
+      "item-68": {
+        "id": 68,
+        "type": "Button",
+        "parentId": 67,
+        "style": {
+          "varName": "postmorphTabGetSelectedButton",
+          "text": "Get selected",
+          "justify": "center",
+          "preferredSize": [
+            131,
+            0
+          ],
+          "alignment": "center",
+          "helpTip": null,
+          "enabled": true
+        }
+      },
+      "item-69": {
+        "id": 69,
+        "type": "StaticText",
+        "parentId": 67,
+        "style": {
+          "varName": "postmorphTabSelectedLayerName",
+          "softWrap": false,
+          "text": "selected layers' names.",
+          "justify": "left",
+          "preferredSize": [
+            0,
+            0
+          ],
+          "alignment": "fill",
+          "helpTip": null,
+          "creationProps": {
+            "truncate": "none",
+            "multiline": false,
+            "scrolling": false
+          },
+          "enabled": true
+        }
+      },
+      "item-70": {
+        "id": 70,
+        "type": "Divider",
+        "parentId": 67,
+        "style": {
+          "varName": "postmorphTabDivider",
+          "enabled": true
+        }
+      },
+      "item-71": {
+        "id": 71,
+        "type": "Group",
+        "parentId": 67,
+        "style": {
+          "varName": "postmorphTabOptionsGroup",
+          "preferredSize": [
+            0,
+            0
+          ],
+          "margins": 0,
+          "orientation": "row",
+          "spacing": 10,
+          "alignChildren": [
+            "left",
+            "center"
+          ],
+          "alignment": "center",
+          "enabled": true
+        }
+      },
+      "item-72": {
+        "id": 72,
+        "type": "RadioButton",
+        "parentId": 71,
+        "style": {
+          "varName": "postmorphTabDefaultRadioButton",
+          "text": "Default",
+          "preferredSize": [
+            0,
+            0
+          ],
+          "alignment": null,
+          "helpTip": null,
+          "checked": false,
+          "enabled": true
+        }
+      },
+      "item-73": {
+        "id": 73,
+        "type": "RadioButton",
+        "parentId": 71,
+        "style": {
+          "varName": "postmorphTabCustomRadioButton",
+          "text": "Custom",
+          "preferredSize": [
+            0,
+            0
+          ],
+          "alignment": null,
+          "helpTip": null,
+          "checked": true,
+          "enabled": true
+        }
+      },
+      "item-74": {
+        "id": 74,
+        "type": "Panel",
+        "parentId": 67,
+        "style": {
+          "varName": "postmorphTabSortingDirectionPanel",
+          "text": "Sorting Direction",
+          "preferredSize": [
+            0,
+            0
+          ],
+          "margins": [
+            15,
+            10,
+            10,
+            10
+          ],
+          "orientation": "column",
+          "spacing": 10,
+          "alignChildren": [
+            "left",
+            "top"
+          ],
+          "alignment": "fill",
+          "creationProps": {
+            "borderStyle": "etched",
+            "su1PanelCoordinates": false
+          },
+          "enabled": true
+        }
+      },
+      "item-75": {
+        "id": 75,
+        "type": "DropDownList",
+        "parentId": 74,
+        "style": {
+          "varName": "postmorphTabSortingDirectionPanelSortingList",
+          "text": "Sorting",
+          "listItems": "topleft,leftright,rightleft,topdown,bottomup,Closest To",
+          "preferredSize": [
+            0,
+            0
+          ],
+          "alignment": null,
+          "selection": 0,
+          "helpTip": null,
+          "enabled": true
+        }
+      },
+      "item-76": {
+        "id": 76,
+        "type": "DropDownList",
+        "parentId": 74,
+        "style": {
+          "varName": "postmorphTabSortingDirectionPanelClosestList",
+          "text": "Closest",
+          "listItems": "layer 1,layer2,layer3",
+          "preferredSize": [
+            0,
+            0
+          ],
+          "alignment": null,
+          "selection": 1,
+          "helpTip": null,
+          "enabled": true
+        }
+      },
+      "item-77": {
+        "id": 77,
+        "type": "Panel",
+        "parentId": 67,
+        "style": {
+          "varName": "postmorphTabFirstVertexPanel",
+          "text": "First Vertex",
+          "preferredSize": [
+            0,
+            0
+          ],
+          "margins": [
+            15,
+            10,
+            10,
+            10
+          ],
+          "orientation": "column",
+          "spacing": 11,
+          "alignChildren": [
+            "left",
+            "top"
+          ],
+          "alignment": "fill",
+          "creationProps": {
+            "borderStyle": "etched",
+            "su1PanelCoordinates": false
+          },
+          "enabled": true
+        }
+      },
+      "item-78": {
+        "id": 78,
+        "type": "DropDownList",
+        "parentId": 77,
+        "style": {
+          "varName": "postmorphTabFirstVertexPanelFirstVertexList",
+          "text": "fVertex",
+          "listItems": "topleft,left,right,bottom,up,random,Closest To",
+          "preferredSize": [
+            0,
+            0
+          ],
+          "alignment": null,
+          "selection": 0,
+          "helpTip": null,
+          "enabled": true
+        }
+      },
+      "item-79": {
+        "id": 79,
+        "type": "DropDownList",
+        "parentId": 77,
+        "style": {
+          "varName": "postmorphTabFirstVertexPanelClosestList",
+          "text": "Closest",
+          "listItems": "layer 1,layer2,layer3",
+          "preferredSize": [
+            0,
+            0
+          ],
+          "alignment": null,
+          "selection": 0,
+          "helpTip": null,
+          "enabled": true
+        }
+      },
+      "item-80": {
+        "id": 80,
+        "type": "Button",
+        "parentId": 47,
+        "style": {
+          "varName": null,
+          "text": "pos",
+          "justify": "center",
+          "preferredSize": [
+            49,
+            0
+          ],
+          "alignment": null,
+          "helpTip": null,
+          "enabled": true
+        }
+      }
+    },
+    "order": [
+      0,
+      1,
+      2,
+      4,
+      6,
+      7,
+      43,
+      44,
+      45,
+      15,
+      9,
+      10,
+      12,
+      13,
+      14,
+      67,
+      68,
+      69,
+      70,
+      71,
+      72,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79,
+      61,
+      40,
+      41,
+      42,
+      28,
+      46,
+      47,
+      64,
+      48,
+      80,
+      65,
+      66,
+      29,
+      50,
+      51,
+      52,
+      53,
+      62,
+      54,
+      55,
+      56,
+      57,
+      63,
+      30,
+      58,
+      59,
+      60,
+      33,
+      31
+    ],
+    "settings": {
+      "importJSON": true,
+      "indentSize": false,
+      "cepExport": false,
+      "includeCSSJS": true,
+      "showDialog": true,
+      "functionWrapper": false,
+      "compactCode": false
+    },
+    "activeId": 2
+  }
