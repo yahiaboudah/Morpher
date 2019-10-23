@@ -1,6 +1,11 @@
-#include "indexGetter.jsx";
-#include "../protomod/propertygroup.jsx";
-#include "../protomod/shapelayer.jsx";
+//@include "../utils/utils.jsx";
+
+
+include([
+    "indexGetter.jsx",
+    "../protomod/propertygroup.jsx",
+    "../protomod/shapelayer.jsx"
+]);
 
 
 function Morpher(config, morphOnCreate){

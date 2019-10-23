@@ -1,3 +1,4 @@
+//@include "utils/utils.jsx";
 
 const LAYER_TYPE = {
   textLayer : "TextLayer",
@@ -26,8 +27,7 @@ function getSelected(instanceOfParam){
     
     else{
       for(var i=0;i<comp.selectedLayers.length;i++){
-        currLayer = comp.selectedLayers[i]; 
-        instanceOf = currLayer.constructor.toString().split(" ")[1].slice(0,-2);
+        instanceOf = constructorName(comp.selectedLayers[i]);
         if(instanceOf == instanceOfParam){
           continue;
         }else{
