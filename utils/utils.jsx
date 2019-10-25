@@ -1,84 +1,67 @@
-Array.prototype.contains = function(element){
-    for(i=0;i<this.length;i++){
-        if(this[i] == element){
-            return true;
-        }
-    }
-    return false;
-}
+
+JS_JSX_PATTERN = /\.(js|jsx)$/i;
 
 function constructor(instance){
     parent = instance.constructor.toString().split(" ")[1].slice(0,-2);
     return parent;
 }
 
-function getFiles(dirPath,extensions,subFolders){
+function getFiles(folder,subFolders){
     
     fetchedFiles = [];
-    
-    // Handle different cases:
-    if(typeof dirPath == "undefined") return [];
-    else{
-        if(constructor(dirPath) != "String") throw Error("Invalid dirPath")
-    }
-    if(typeof extensions == "undefined") extensions = ['*'];
-    else{
-        if(constructor(extensions) != "Array") throw Error("Invalid Extensions");
-    }
-    subFolders = subFolders || true;
 
+    subFolders = subFolders || true;
     
-    var files = Folder(dirPath).getFiles();
+    var files = folder.getFiles();
     
     for(i=0;i<files.length;i++){
+        
         if(files[i] instanceof File){
-            
-            if(extensions[0] == '*'){
-
-                fetchedFiles.push(files[i].name);
-
-            }else{
-                extension = files[i].absoluteURI.split(".")[1];
-                if(extensions.contains(extension)){
-                    fetchedFiles.push(files[i].name);
-                }
-        }
+                
+            if(files[i].fullName.search(JS_JSX_PATTERN) != -1){
+                fetchedFiles.push(files[i]);
+            } 
+        
         }else if(files[i] instanceof Folder){
-            if(subFolders){
-                getFiles(files[i].absoluteURI,extensions);
-            }
-        }else continue;
+        
+            if(subFolders) getFiles(files[i],subFolders);
+        
+        }  
     }
     return fetchedFiles;
 }
 
-files = getFiles("C:/Users/HP/Desktop/testFolder/");
-alert(files);
-
-function include(list){
-
-    includedFiles = [];
+function include(list,allSubFolders){
+    
+    incFiles = [];
     
     for(var i=0;i<list.length;i++){
-        if(typeof list[i] != "string"){
+        s = list[i];
+        if(typeof s != "string"){
             throw new Error("File or directory name must be a string.");
         }
-        if(s.substring(0,-3) == "jsx"){
-
-            includedFiles.push(list[i]);
+        if(s.search(JS_JSX_PATTERN) != -1){
+            
+            file = File(s);
+            if(!file.exists) throw Error("File: "+s+" does not exist.");
+            incFiles.push(file);
         
-        }else if(s.substring(0,-1) == ("\/")){
+        }else if(s.search(/\/$/) != -1){
 
+            folder = Folder(s);
+            if(!folder.exists) throw Error("Folder: "+s+"does not exist.");
+            fetchedFiles = getFiles(folder,allSubFolders);
+            incFiles.push(fetchedFiles[0],fetchedFiles[1]);          
 
         }else{
-            throw new Error("File or directory name invalid");
+            throw new Error("File or folder name invalid");
         }
         
     }
-
-    for(i=0;i<includedFiles.length;i++){
-        $.evalFile(includedFiles[i]);
+    alert(incFiles);
+    for(i=0;i<incFiles.length;i++) {
+        
+        //$.evalFile(incFiles[i]);
     }
+
 }
-
-

@@ -1,4 +1,4 @@
 *.log
 mainMorpher.jsx
-test?.jsx
+test?.*
 ignored.txt
