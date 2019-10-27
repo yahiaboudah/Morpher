@@ -1,9 +1,3 @@
-//@include "../../Logger/logger.jsx";
-
-logger = new Logger({
-    loggerName: "newLogger",
-    enabled: false
-});
 
 function constructor(instance){
     parent = instance.constructor.toString().split(" ")[1].slice(0,-2);
@@ -70,7 +64,7 @@ function getFiles(folderPath,mask){
 
 function include(list){
 
-    O = {
+    INC = {
         JS_JSX_PATTERN : /\.(js|jsx)$/i,
         incFiles :[]
     }
@@ -80,18 +74,18 @@ function include(list){
         if(typeof s != "string"){
             throw new Error("File or directory name must be a string.");
         }
-        if(s.search(O.JS_JSX_PATTERN) != -1){
+        if(s.search(INC.JS_JSX_PATTERN) != -1){
             
             file = File(s);
             if(!file.exists) throw Error("File: "+s+" does not exist.");
-            O.incFiles.push(file);
+            INC.incFiles.push(file);
             
         }else if(s.search(/\/$/) != -1){
 
             folder = Folder(s);
             if(!folder.exists) throw Error("Folder: "+s+"does not exist.");
-            allFilesInFolder = getFiles(folder,O.JS_JSX_PATTERN);
-            Array.prototype.push.apply(O.incFiles,allFilesInFolder);
+            allFilesInFolder = getFiles(folder,INC.JS_JSX_PATTERN);
+            Array.prototype.push.apply(INC.incFiles,allFilesInFolder);
             
         }else{
             throw new Error("File or folder name invalid");
@@ -99,17 +93,8 @@ function include(list){
         
     }
     
-    alert(O.incFiles.length);
-    for(i=0;i<O.incFiles.length;i++) {
-        $.evalFile(incFiles[i]);
+    for(i=0;i<INC.incFiles.length;i++) {
+        $.evalFile(INC.incFiles[i]);
     }
 
 }
-
-include([
-    "../test5/"
-]);
-
-
-
-
