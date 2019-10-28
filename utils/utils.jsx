@@ -4,6 +4,9 @@ function constructor(instance){
     return parent;
 }
 
+function utilsFunction(){
+
+}
 
 function getFiles(folderPath,mask){
 
