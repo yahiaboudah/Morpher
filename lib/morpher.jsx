@@ -1,12 +1,61 @@
 //@include "../utils/utils.jsx";
 
+morphing = {
+
+    CONSTANTS: {
+    
+        SORTING_DIRECTIONS : {
+        topLeft: "TOPLEFT",
+        leftRight: "LEFTRIGHT",
+        rightLeft : "RIGHTLEFT",
+        bottomUp: "BOTTOMUP",
+        topDown: "TOPDOWN"    
+        },
+    
+        DUPLICATES_OPTS : {
+        closestShapes : "CLOSEST SHAPES",
+        random : "RANDOM",
+        centerOfMass: "CENTER OF MASS",
+        manual : "MANUAL"
+        },
+    
+        LAYERS_SHRINK_OPTS : {
+        deleteOpt : "Delete",
+        disbaleOpt : "Disable",
+        noneOpt : "No"
+        },
+    
+        LAYERS_EXPAND_OPTS : {
+        restoreOpt : "Restore",
+        keepOpt : "Keep",
+        noneOpt : "No"
+        },
+    
+        MORPH_TYPE : {
+        EXPANDING: "EXPANDING",
+        SHRINKING: "SHRINKING"
+        },
+    
+        FIRST_VERTEX_OPTS : {
+        up: "UP",
+        left: "LEFT",
+        right: "RIGHT",
+        down: "DOWN",
+        upperLeft: "UPPERLEFT",
+        upperRight : "UPPERRIGHT",
+        bottomLeft: "BOTTOMLEFT",
+        bottomRight: "BOTTOMRIGHT",
+        random : "RANDOM",
+        closestTo : "CLOSEST TO"
+        }
+  },
+
+};
 
 include([
-    "indexGetter.jsx",
-    "../protomod/propertygroup.jsx",
-    "../protomod/shapelayer.jsx"
+    "../polyfills/",
+    "indexGetter.jsx"
 ]);
-
 
 function Morpher(config, morphOnCreate){
 
@@ -15,13 +64,13 @@ function Morpher(config, morphOnCreate){
 
     this.preMorphLayer = config.premorphLayer || undefined;
     this.postMorphLayer = config.postMorphLayer || undefined;
-    this.premorphSortingDirection = config.premorphSortingDirection || this.CONSTANTS.SORTING_DIRECTIONS.topLeft;
-    this.postMorphSortingDirection = config.postMorphSortingDirection || this.CONSTANTS.SORTING_DIRECTIONS.topLeft;
-    this.premorphFVertex = config.premorphFVertex || this.CONSTANTS.FIRST_VERTEX_OPTS.upperLeft;
-    this.postmorphFVertex = config.postmorphFVertex || this.CONSTANTS.FIRST_VERTEX_OPTS.upperLeft;
-    this.duplicates = config.duplicates || this.CONSTANTS.DUPLICATES_OPTS.closestShapes;
-    this.layersShrink = config.layersShrink || this.CONSTANTS.LAYERS_SHRINK_OPTS.deleteOpt;
-    this.layersExpand = config.layersExpand || this.CONSTANTS.LAYERS_EXPAND_OPTS.restoreOpt;
+    this.premorphSortingDirection = config.premorphSortingDirection || morphing.CONSTANTS.SORTING_DIRECTIONS.topLeft;
+    this.postMorphSortingDirection = config.postMorphSortingDirection || morphing.CONSTANTS.SORTING_DIRECTIONS.topLeft;
+    this.premorphFVertex = config.premorphFVertex || morphing.CONSTANTS.FIRST_VERTEX_OPTS.upperLeft;
+    this.postmorphFVertex = config.postmorphFVertex || morphing.CONSTANTS.FIRST_VERTEX_OPTS.upperLeft;
+    this.duplicates = config.duplicates || morphing.CONSTANTS.DUPLICATES_OPTS.closestShapes;
+    this.layersShrink = config.layersShrink || morphing.CONSTANTS.LAYERS_SHRINK_OPTS.deleteOpt;
+    this.layersExpand = config.layersExpand || morphing.CONSTANTS.LAYERS_EXPAND_OPTS.restoreOpt;
     this.morphTime = config.morphTime || 0.5;
 
     if(morphOnCreate){
@@ -31,47 +80,6 @@ function Morpher(config, morphOnCreate){
 }
 
 Morpher.prototype.indexGetter = new IndexGetter();
-Morpher.prototype.CONSTANTS = {  
-    SORTING_DIRECTIONS : {
-        topLeft: "TOPLEFT",
-        leftRight: "LEFTRIGHT",
-        rightLeft : "RIGHTLEFT",
-        bottomUp: "BOTTOMUP",
-        topDown: "TOPDOWN"    
-    },
-    DUPLICATES_OPTS : {
-        closestShapes : "CLOSEST SHAPES",
-        random : "RANDOM",
-        centerOfMass: "CENTER OF MASS",
-        manual : "MANUAL"
-    },
-    LAYERS_SHRINK_OPTS : {
-        deleteOpt : "Delete",
-        disbaleOpt : "Disable",
-        noneOpt : "No"
-    },
-    LAYERS_EXPAND_OPTS : {
-        restoreOpt : "Restore",
-        keepOpt : "Keep",
-        noneOpt : "No"
-    },
-    MORPH_TYPE : {
-        EXPANDING: "EXPANDING",
-        SHRINKING: "SHRINKING"
-    },
-    FIRST_VERTEX_OPTS : {
-    up: "UP",
-    left: "LEFT",
-    right: "RIGHT",
-    down: "DOWN",
-    upperLeft: "UPPERLEFT",
-    upperRight : "UPPERRIGHT",
-    bottomLeft: "BOTTOMLEFT",
-    bottomRight: "BOTTOMRIGHT",
-    random : "RANDOM",
-    closestTo : "CLOSEST TO"
-    }
-};
 
 
 Morpher.prototype.getDistances = function(layer,startingPoint,selectedLayerName){
@@ -97,22 +105,22 @@ Morpher.prototype.getDistances = function(layer,startingPoint,selectedLayerName)
       
         switch (startingPoint) {
        
-            case this.CONSTANTS.SORTING_DIRECTIONS.topleft:
+            case morphing.CONSTANTS.SORTING_DIRECTIONS.topleft:
                dist = Math.sqrt(Math.pow((pos[0]-src.left),2)+Math.pow((pos[1]-src.top),2));
                break;
-            case this.CONSTANTS.SORTING_DIRECTIONS.leftRight:
+            case morphing.CONSTANTS.SORTING_DIRECTIONS.leftRight:
                dist = pos[0]-src.left;
                break;
-            case this.CONSTANTS.SORTING_DIRECTIONS.rightLeft:
+            case morphing.CONSTANTS.SORTING_DIRECTIONS.rightLeft:
                dist = WIDTH - (pos[0]-src.left);
                break;   
-            case this.CONSTANTS.SORTING_DIRECTIONS.topdown:
+            case morphing.CONSTANTS.SORTING_DIRECTIONS.topdown:
                dist = pos[1] - src.top;
                break;
-            case this.CONSTANTS.SORTING_DIRECTIONS.bottomUp:
+            case morphing.CONSTANTS.SORTING_DIRECTIONS.bottomUp:
                dist = HEIGHT - (pos[1] - src.top)
                break;
-            case this.CONSTANTS.SORTING_DIRECTIONS.closestTo:
+            case morphing.CONSTANTS.SORTING_DIRECTIONS.closestTo:
                if(typeof selectedLayerName != "undefined"){
                     selectedLayer = comp.layers.byName(selectedLayerName);
                     selLayerPos = selectedLayer.transform.position;
@@ -173,8 +181,7 @@ Morpher.prototype.morph = function(){
   
   if(diff > 0){
     // Expand:
-    var eachGets = diff / this.preMorphLayer.property("Contents").numProperties; 
-    if(eachGets < 1) 
+    //var eachGets = diff / this.preMorphLayer.property("Contents").numProperties;  
     for(var i=0;i<diff;i++){
       this.duplicateGroup(this.preMorphLayer,1);
     }    

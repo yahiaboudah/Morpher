@@ -6,7 +6,7 @@ SMALL_TAB_SIZE = 140;
 BIG_TAB_SIZE = 411;
 
 // WIN
-var win = new Window("palette");
+this.win = new Window("palette");
     win.text = "Morpher";
     win.orientation = "column";
     win.alignChildren = ["center","top"];
