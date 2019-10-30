@@ -1,66 +1,89 @@
 
-function constructor(instance){
-    parent = instance.constructor.toString().split(" ")[1].slice(0,-2);
-    return parent;
+
+time = {
+    start : 0,
+    end : 0,
+    reset: function(){
+        this.start = 0;
+        this.end = 0;
+    },
+    start: function(){
+        this.start = new Date().getTime();
+    },
+    end: function(msg){
+        if(msg == undefined) msg = "";
+        else msg = msg +": ";
+        this.end = new Date().getTime();
+        alert(msg + (this.end - this.start));
+        this.reset();
+    }
+};
+
+
+function deepclone(arr){
+    if(!(arr instanceof Array)) throw Error("deepclone only works on arrays");
+    return eval("["+arr.toString()+"]");
 }
 
+function constructor(instance){
+    return instance.constructor.toString().split(" ")[1].slice(0,-2);
+}
 
 function getFiles(folderPath,mask){
 
     O = {
+        
         fileQueue: [],
         folderQueue: [],
-        fileType: "File",
-        folderType: "Folder",
-        getF: function(dirPath,type){
-                finalArray = [];
-                var folder = Folder(dirPath);
-                var files = folder.getFiles();
-                for(i=0;i<files.length;i++){
-                    switch (type) {
-                        case "Folder":
-                            if(files[i] instanceof Folder){
-                                finalArray.push(files[i]);
-                            }
-                            break;
-                        case "File":
-                                if(files[i] instanceof File){
-                                    if(mask == undefined) {
-                                        finalArray.push(files[i]);
-                                    }else{
-                                        if(files[i].fullName.search(mask) != -1){
-                                            finalArray.push(files[i]);
-                                        }
-                                    }
-                                }
-                            break;        
-                        default:
-                            break;
+
+        getF: function(dirPath){
+                
+            obj = {
+                files: [],
+                folders: []
+            };
+                
+            var folder = Folder(dirPath);
+            var files = folder.getFiles();
+                
+            for(i=0;i<files.length;i++){
+                    
+                if(files[i] instanceof Folder){
+                    obj.folders.push(files[i]);
+                }
+                    
+                else if(files[i] instanceof File){
+                    if(mask == undefined) {
+                        obj.files.push(files[i]);
+                    }else{
+                        if(files[i].fullName.search(mask) != -1){
+                            obj.files.push(files[i]);
+                        }
                     }
                 }
-                return finalArray;
+            }
+            return obj;
         }
     };
     
-    var files = O.getF(folderPath,O.fileType);
-    Array.prototype.push.apply(O.fileQueue,files);
-
-    O.folderQueue = O.getF(folderPath,O.folderType);
+    var fs = O.getF(folderPath);
     
-    while(O.folderQueue.length > 0){
+    O.folderQueue = fs.folders;
+    Array.prototype.push.apply(O.fileQueue,fs.files);
+    
+    while(O.folderQueue.length){
+
         folderNow = O.folderQueue.pop();
-        
-        filesInFolder = O.getF(folderNow,O.fileType);
-        Array.prototype.push.apply(O.fileQueue,filesInFolder);
-        
-        foldersInFolder = O.getF(folderNow,O.folderType);
-        Array.prototype.push.apply(O.folderQueue,foldersInFolder);
+        fs = O.getF(folderNow);
+
+        Array.prototype.push.apply(O.fileQueue,fs.files);
+        Array.prototype.push.apply(O.folderQueue,fs.folders);
+    
     }
 
     return O.fileQueue;
 
 }
-
 
 function include(list){
 
