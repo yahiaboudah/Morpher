@@ -48,8 +48,8 @@ morphing = {
         random : "RANDOM",
         closestTo : "CLOSEST TO"
         }
-  },
-
+    }
+    
 };
 
 include([
@@ -73,9 +73,7 @@ function Morpher(config, morphOnCreate){
     this.layersExpand = config.layersExpand || morphing.CONSTANTS.LAYERS_EXPAND_OPTS.restoreOpt;
     this.morphTime = config.morphTime || 0.5;
 
-    if(morphOnCreate){
-        this.morph();
-    }
+    if(morphOnCreate) this.morph();
 
 }
 
@@ -200,7 +198,7 @@ Morpher.prototype.morph = function(){
   // Sort indices based on the distances:
   // Get the list of indicies to start morphing:
   preMorphIndices = this.indexGetter.sortIndices(premorphDistances);
-  postMorphIndices = this.indexGetter.sortIndices(postmorphDistances);  
+  postMorphIndices = this.indexGetter.sortIndices(postmorphDistances);
   
   // loop through all properties:
   for(var j=1;j<this.preMorphLayer.property("Contents").numProperties+1;j++){
