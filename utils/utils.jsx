@@ -107,9 +107,9 @@ function include(list){
 
             folder = Folder(s);
             if(!folder.exists) throw Error("Folder: "+s+"does not exist.");
-            allFilesInFolder = getFiles(folder,INC.JS_JSX_PATTERN);
-            Array.prototype.push.apply(INC.incFiles,allFilesInFolder);
-            
+            files = getFiles(folder,INC.JS_JSX_PATTERN);
+            Array.prototype.push.apply(INC.incFiles,files);
+
         }else{
             throw new Error("File or folder name invalid");
         }

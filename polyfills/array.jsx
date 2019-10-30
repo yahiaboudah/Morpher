@@ -1,9 +1,7 @@
-//@include "../../json2.js";
-
 
 Array.prototype.rotate = function(direction, i){
 
-    arr = JSON.parse(JSON.stringify(this));
+    arr = eval("["+this.toString()+"]");
     
     switch (direction) {
       case "RIGHT":
@@ -19,11 +17,9 @@ Array.prototype.rotate = function(direction, i){
         }
         break;                    
       default:
-        alert("Direction is either LEFT or RIGHT");
-        break;
+        throw Error("Direction is either LEFT or RIGHT");
     }
-  return arr;   
-
+  return arr;
 }
 
 Array.prototype.reduce = function(callback) {

@@ -1,15 +1,18 @@
+//@include "lib/morpher.jsx";
 
 function MorpherScript(){
-    this.win = undefined;
-    this.buildUI();    
+    this.buildUI();
 }
 
+MorpherScript.prototype.iconpath = $.fileName;
+MorpherScript.prototype.UIFilePath = "UI/morphUI.jsx";
 MorpherScript.prototype.scriptName = "Morpher";
 MorpherScript.prototype.scriptVersion = "1.0";
 
 MorpherScript.prototype.buildUI = function(){
-    $.evalFile("UI/morphUI.jsx");
+        
 }
+
 MorpherScript.prototype.morph = function(){
     
     config = {
@@ -34,3 +37,9 @@ MorpherScript.prototype.morph = function(){
       }
       app.endUndoGroup();
 }
+
+MorpherScript.prototype.run =function(){
+    this.winObj.show();
+}
+
+(new MorpherScript()).run();

@@ -53,8 +53,8 @@ morphing = {
 };
 
 include([
-    "../polyfills/",
-    "indexGetter.jsx"
+    "polyfills/",
+    "lib/indexGetter.jsx"
 ]);
 
 function Morpher(config, morphOnCreate){
