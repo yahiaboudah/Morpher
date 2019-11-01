@@ -19,6 +19,16 @@ time = {
     }
 };
 
+function objToString (obj) {
+    var str = '';
+    if(obj == undefined) return;
+    for (var p in obj) {
+        if (obj.hasOwnProperty(p)) {
+            str += p + ':' + String(obj[p]) + '\n';
+        }
+      }
+    return str;
+}
 
 function deepclone(arr){
     if(!(arr instanceof Array)) throw Error("deepclone only works on arrays");
@@ -121,3 +131,4 @@ function include(list){
     }
 
 }
+

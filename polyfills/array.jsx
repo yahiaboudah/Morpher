@@ -1,7 +1,7 @@
 
 Array.prototype.rotate = function(direction, i){
 
-    arr = eval("["+this.toString()+"]");
+    arr = eval("["+String(this)+"]");
     
     switch (direction) {
       case "RIGHT":
